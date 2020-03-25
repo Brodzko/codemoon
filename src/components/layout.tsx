@@ -1,10 +1,16 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm, scale } from '../utils/typography'
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
+interface LayoutProps {
+  location: Location
+  title: string
+  children?: any
+}
+
+const Layout = ({ location, title, children }: LayoutProps) => {
+  const rootPath = `${process.env.__PATH_PREFIX__}/`
   let header
 
   if (location.pathname === rootPath) {
