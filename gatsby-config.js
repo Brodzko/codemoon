@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Codemoon`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Martin Brodziansky`,
+      summary: `- a frontend developer based in Prague, Czech republic. On the beginning of his journey.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `One developer's diary`,
+    siteUrl: `https://codemoon.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `brodzko`,
     },
   },
   plugins: [

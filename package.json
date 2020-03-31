@@ -42,6 +42,11 @@
     "typeface-montserrat": "0.0.75",
     "typescript": "^3.8.3",
     "typography": "^0.16.19",
+    "typography-theme-domo-arigato": "^1.0.1",
+    "typography-theme-fairy-gates": "^0.16.19",
+    "typography-theme-github": "^0.16.19",
+    "typography-theme-lincoln": "^0.16.19",
+    "typography-theme-moraga": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {

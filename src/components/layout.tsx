@@ -1,60 +1,43 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link, useStaticQuery } from 'gatsby';
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm, scale } from '../utils/typography';
+import { graphql } from 'gatsby';
+
+import Image from 'gatsby-image';
 
 interface LayoutProps {
-  location: Location
-  title: string
-  children?: any
+  location: Location;
+  title: string;
+  children?: any;
 }
 
 const Layout = ({ location, title, children }: LayoutProps) => {
-  const rootPath = `${process.env.__PATH_PREFIX__}/`
-  let header
+  const data = useStaticQuery(graphql`
+    query Logo {
+      logo: file(absolutePath: { regex: "/logo.png/" }) {
+        childImageSharp {
+          fixed(width: 200) {
+            ...GatsbyImageSharpFixed_noBase64
+          }
+        }
+      }
+    }
+  `);
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+  const header = (
+    <Link
+      style={{
+        boxShadow: `none`,
+        textDecoration: `none`,
+        color: `inherit`,
+      }}
+      to={`/`}
+    >
+      <Image fixed={data.logo.childImageSharp.fixed}></Image>
+    </Link>
+  );
+
   return (
     <div
       style={{
@@ -72,7 +55,7 @@ const Layout = ({ location, title, children }: LayoutProps) => {
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

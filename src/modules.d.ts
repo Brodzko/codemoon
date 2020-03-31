@@ -1,1 +1,10 @@
-declare module 'typography-theme-wordpress-2016'
+declare module 'typography-theme-wordpress-2016';
+declare module 'typography-theme-moraga';
+declare module 'typography-theme-domo-arigato';
+declare module 'typography-theme-github';
+declare module 'typography-theme-lincoln';
+declare module 'typography-theme-fairy-gates';
+declare module 'gray-percentage';
+declare module 'Types';
+declare module 'typography-breakpoint-constants';
+declare module 'compass-vertical-rhythm';
