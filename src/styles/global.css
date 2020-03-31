@@ -1,3 +1,8 @@
 body {
   background-color: #1b2638;
 }
+
+/* To make code samples smaller, overrides PrismJS styles */
+pre {
+  font-size: 0.8rem !important;
+}
