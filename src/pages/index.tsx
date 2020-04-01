@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import kebabCase from 'lodash/kebabCase';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
@@ -49,6 +50,18 @@ const BlogIndex = ({ data, location }: IndexProps) => {
                 }}
               />
             </section>
+            <footer style={{ fontSize: '.7rem' }}>
+              Tagged{' '}
+              {node.frontmatter.tags.map((tag: string) => (
+                <span
+                  className="tag--small"
+                  key={tag}
+                  style={{ margin: '0 .2rem' }}
+                >
+                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                </span>
+              ))}
+            </footer>
           </article>
         );
       })}
@@ -76,6 +89,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

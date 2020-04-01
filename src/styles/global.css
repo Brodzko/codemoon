@@ -6,3 +6,30 @@ body {
 pre {
   font-size: 0.8rem !important;
 }
+
+small {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tags-list__item {
+  margin: 0.1rem 0.2rem;
+  line-height: 2rem;
+}
+
+.tags-list__item a {
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border: 1px #fc9f53 dashed;
+  font-size: 1.2rem;
+}
+
+.tags-list__item a:hover {
+  border-style: solid;
+}
