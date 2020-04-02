@@ -20,7 +20,7 @@ defaultTheme.overrideStyles = (
   { adjustFontSizeTo, scale, rhythm },
   options,
 ) => {
-  const linkColor = '#fc9f53';
+  const linkColor = '#9cef37';
   const vr = verticalRhythm({
     baseFontSize: '17px',
     baseLineHeight: '24.65px',

@@ -1,15 +1,10 @@
 body {
-  background-color: #1b2638;
+  background-color: #202d42;
 }
 
 /* To make code samples smaller, overrides PrismJS styles */
 pre {
   font-size: 0.8rem !important;
-}
-
-small {
-  opacity: 0.7;
-  font-style: italic;
 }
 
 .tags-list {
@@ -32,4 +27,15 @@ small {
 
 .tags-list__item a:hover {
   border-style: solid;
+}
+
+.header__social-icon {
+  color: #f7f7f7;
+  opacity: 0.7;
+  transition: 200ms ease-in-out;
+  margin: 0 8px;
+}
+
+.header__social-icon:hover {
+  opacity: 1;
 }

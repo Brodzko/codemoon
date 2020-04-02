@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, graphql } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
 
@@ -30,39 +30,45 @@ const BlogIndex = ({ data, location }: IndexProps) => {
       {posts.map(({ node }: any) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-            <footer style={{ fontSize: '.7rem' }}>
-              Tagged{' '}
-              {node.frontmatter.tags.map((tag: string) => (
-                <span
-                  className="tag--small"
-                  key={tag}
-                  style={{ margin: '0 .2rem' }}
+          <Fragment key={node.fields.slug}>
+            <article key={node.fields.slug}>
+              <header>
+                <h3
+                  style={{
+                    marginBottom: rhythm(1 / 4),
+                    marginTop: rhythm(0.75),
+                  }}
                 >
-                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </span>
-              ))}
-            </footer>
-          </article>
+                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small>
+                  {node.frontmatter.date} - 🕒{node.fields.readingTime.text}
+                </small>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt,
+                  }}
+                />
+              </section>
+              <footer style={{ fontSize: '.7rem' }}>
+                Tagged{' '}
+                {node.frontmatter.tags.map((tag: string) => (
+                  <span
+                    className="tag--small"
+                    key={tag}
+                    style={{ margin: '0 .2rem' }}
+                  >
+                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  </span>
+                ))}
+              </footer>
+            </article>
+            <hr style={{ marginBottom: 0, marginTop: rhythm(0.75) }} />
+          </Fragment>
         );
       })}
     </Layout>
@@ -84,6 +90,9 @@ export const pageQuery = graphql`
           excerpt
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
