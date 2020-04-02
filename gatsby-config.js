@@ -3,12 +3,13 @@ module.exports = {
     title: `Codemoon`,
     author: {
       name: `Martin Brodziansky`,
-      summary: `- a frontend developer based in Prague, Czech republic. On the beginning of his journey.`,
+      summary: `- a frontend developer based in Prague, Czech republic. When I write, I write to learn through explaining. If you'd like, you can `,
     },
     description: `One developer's diary`,
     siteUrl: `https://codemoon.io/`,
     social: {
       twitter: `brodzko`,
+      github: `Brodzko`,
     },
   },
   plugins: [
@@ -50,6 +51,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-remark-reading-time`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
